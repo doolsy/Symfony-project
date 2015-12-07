@@ -1,0 +1,24 @@
+{% extends "EappBlogBundle::layout.html.twig" %}
+
+{% block title %}
+  Supprimer un article - {{ parent() }}
+{% endblock %}
+
+{% block myblogz_body %}
+
+  <h2>Supprimer un article</h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer l'article "{{ post.titre }}" ?
+  </p>
+
+  <form action="{{ path('myblogz_delete', {'id': post.id}) }}" method="post">
+    <a href="{{ path('myblogz_post', {'id': post.id}) }}" class="btn">
+      <i class="icon-chevron-left"></i>
+      Retour à l'article
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

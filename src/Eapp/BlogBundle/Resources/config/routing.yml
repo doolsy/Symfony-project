@@ -1,0 +1,24 @@
+myblogz_accueil:
+    path:     /
+    defaults: { _controller: EappBlogBundle:Blog:index }
+myblogz_allpost:
+    path:     /
+    defaults: { _controller: EappBlogBundle:Blog:all }
+myblogz_post:
+    path:      /post/{id}
+    defaults:  { _controller: EappBlogBundle:Blog:post }
+    requirements:
+        id: \d+
+myblogz_add:
+    path:      /new
+    defaults:  { _controller: EappBlogBundle:Blog:new }
+myblogz_edit:
+    path:      /edit/{id}
+    defaults:  { _controller: EappBlogBundle:Blog:edit }
+    requirements:
+        id: \d+
+myblogz_delete:
+    path:      /delete/{id}
+    defaults:  { _controller: EappBlogBundle:Blog:delete }
+    requirements:
+        id: \d+ 

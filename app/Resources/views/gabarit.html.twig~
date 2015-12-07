@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>{% block title %}Blog Symfony 2{% endblock %}</title>
+		{% block stylesheets %}
+		      {% stylesheets output='css/main.css' filter='cssrewrite, ?yui_css'
+			'css/bootstrap.css'
+			'@EappBlogBundle/Resources/public/css/*' %}
+			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		      {% endstylesheets %}
+		    {% endblock %}
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="{{ path('myblogz_accueil') }}" class="navbar-brand">Home</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+      <ul class="nav navbar-nav">
+        <li>
+	   <a href="{{ path('myblogz_add') }}">Ajouter un article</a>
+        </li>
+        <li>
+          <a href="#">Voir tous les articles</a>
+        </li>
+      </ul>
+	{% endif %}
+      <ul class="nav navbar-right navbar-nav">
+	 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+	<li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
+{% else %}
+    <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+          {% endif %}
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+          <ul class="dropdown-menu" style="padding:12px;">
+            <form class="form-inline">
+            	<div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+            	</div>
+            </form>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>My Blogz
+          <p class="lead">Site d'informations sportives</p>
+        </h1>
+      </div>
+    </div> 
+  </div><!-- /cont -->
+  
+ 
+</div>
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+        
+          	{% block body %}
+          	{% endblock %}
+          <!--/stories-->
+                  
+          <!--/stories-->
+          
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+                                                
+                                                                                
+<hr>
+
+<div class="container" id="footer">
+  <div class="row">
+    <div class="col col-sm-12">
+      
+      <h1>Follow Us</h1>
+      <div class="btn-group">
+       <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+	   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+	   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+        
+      </div>
+      <div class="col-sm-6">
+          <p class="pull-right">Never give up © {{ 'now'|date('Y') }} <a href="http://www.bootply.com">Doul SY</a></p>      
+      </div>
+    </div>
+  </div>
+</footer>
+{% block javascripts %}
+      {# jQuery depuis le CDN de Google, ou fallback sur une copie locale #}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.min.js') }}"><\/script>')</script>
+
+      {# Tous nos javascripts avec Assetic #}
+      {% javascripts output='js/main.js' filter='?yui_js'
+        '@EappBlogBundle/Resources/public/js/*' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+    {% endblock %}
+	</body>
+</html>

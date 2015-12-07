@@ -1,0 +1,22 @@
+{% extends "::gabarit.html.twig" %}
+
+{% block title %}
+  Articles - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+
+
+    {% for type in ['info', 'success', 'error'] %}
+        {% for message in app.session.flashbag.get(type) %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block myblogz_body %}
+  {% endblock %}
+
+{% endblock %}
