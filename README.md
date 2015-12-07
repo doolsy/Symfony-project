@@ -1,12 +1,17 @@
 Premier projet avec symfony 2
 
 Les differentes routes du blog en mode dev:
+  
+  Accueil : localhost/Symfony/web/app_dev.php/myblogz
+  
+  Creation d'article : localhost/Symfony/web/app_dev.php/myblogz/new
+  
+  Visualisation d'un article : localhost/Symfony/web/app_dev.php/myblogz/post/id
+  
+  modification d'article : localhost/Symfony/web/app_dev.php/myblogz/edit/id
+  
+  suppression d'article : localhost/Symfony/web/app_dev.php/myblogz/delete/id
 
-  -Accueil : localhost/Symfony/web/app_dev.php/myblogz
-  -Creation d'article : localhost/Symfony/web/app_dev.php/myblogz/new
-  -Visualisation d'un article : localhost/Symfony/web/app_dev.php/myblogz/post/id
-  -modification d'article : localhost/Symfony/web/app_dev.php/myblogz/edit/id
-  -suppression d'article : localhost/Symfony/web/app_dev.php/myblogz/delete/id
 Acces en mode prod : localhost/Symfony/web/myblogz
 
 Le fichier sql de la base de données se trouves dans le repertoire Eapp/Bdd
