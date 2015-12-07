@@ -21,3 +21,6 @@ Un utilisateur existe deja dans la bdd (inscription possible) : pseudo: asy mpd:
 Une fois sur la page d'accueil; pour visualiser un article et eventuelement le modifier ou le supprimer il faut cliquer sur le bouton Read More. Tout utilisateur peut supprimer un article ou le modifier. L'identification est obligatoire pour acceder aux differentes pages.
 
 Votre cours nous a permis d'avoir des connaissances sur symfony 2 et le projet nous a permis d'appliquer c'est connaissances afin de les consolider.
+
+
+VIDEZ LE CACHE ET DONNEZ LES DROITS AVANT DE TESTER.
